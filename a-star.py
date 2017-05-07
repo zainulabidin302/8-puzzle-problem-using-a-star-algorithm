@@ -47,11 +47,11 @@ class Node:
         return (other.value) == (self.value)
 
     def __lt__(self, other):
-        full_cost_a = self.moves  + self.hamming_distance()    # f(x) = g(x) + h(x)
-        full_cost_b = other.moves + other.hamming_distance()   # f(x) = g(x) + h(x)
+        # full_cost_a = self.moves  + self.hamming_distance()    # f(x) = g(x) + h(x)
+        # full_cost_b = other.moves + other.hamming_distance()   # f(x) = g(x) + h(x)
         
-        # full_cost_a = self.moves  + self.manhatan_distance()    # f(x) = g(x) + h(x)
-        # full_cost_b = other.moves + other.manhatan_distance()   # f(x) = g(x) + h(x)
+        full_cost_a = self.moves  + self.manhatan_distance()    # f(x) = g(x) + h(x)
+        full_cost_b = other.moves + other.manhatan_distance()   # f(x) = g(x) + h(x)
         
         # print('a cost = ', full_cost_a, 'b cost = ', full_cost_b)
 
@@ -258,9 +258,8 @@ if __name__ == '__main__':
 
     path = []
     Node.build_path(closed_list[-1], path)
-    #print('closed list', [n.value for n in closed_list])
 
-    for n in reversed(path):
+    for n in (path):
         print_board(n)
 
     print('total moves of solution', len(path))

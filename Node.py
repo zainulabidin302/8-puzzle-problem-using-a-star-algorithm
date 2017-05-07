@@ -3,7 +3,6 @@ COST = 'manhattan_distance' # LINE 29 use this constant
 #COST = 'hamming_distance'
 
 
-
 class Node:
     def __init__(self, state, parent=-1, gn=0):
         self.state = state
@@ -23,6 +22,11 @@ class Node:
 
     def __hash__(self):
         return int(self.state)
+
+    def __lt__(self, other):
+        if not isinstance(other, Node):
+            raise "Can not compare Node with other type of object"
+        return self.fn < other.fn
 
     @property
     def cost(self):
